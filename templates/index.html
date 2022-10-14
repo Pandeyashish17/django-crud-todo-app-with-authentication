@@ -1,31 +1,45 @@
 {% extends 'base.html' %} {% block body %}
-
+<div class="m-8">
+  <h1 class="text-3xl font-bold">Hello {{request.user}} 😃😃😃</h1>
+</div>
+{% if todos %}
 <div
   class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans"
 >
   <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
-    <div class="mb-4">
-      <h1 class="text-grey-darkest">Hello {{request.user}}</h1>
-    </div>
     <div>
+      <h2 class="text-3xl font-semibold mb-3">
+        Number of todos: {{ todos|length }}
+      </h2>
+
       {% for todo in todos reversed %}
 
       <div class="flex mb-4 items-center">
-        <p class="w-full text-red-300">{{todo.title}}</p>
-        <button
-          class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-white text-green border-green hover:bg-green"
+        <p class="w-full">{{todo.title}}</p>
+        <a
+          href="/update/{{todo.title}}"
+          class="flex-no-shrink p-2 ml-4 mr-2 border-2 rounded hover:text-blue-500"
         >
-          Done
-        </button>
-        <button
-          class="flex-no-shrink p-2 ml-2 border-2 rounded text-red border-red hover:text-white hover:bg-red"
+          See details or Update
+        </a>
+        <a
+          href="{% url 'delete' todo.id %}"
+          class="flex-no-shrink p-2 ml-2 border-2 rounded hover:text-blue-500"
         >
           Remove
-        </button>
+        </a>
       </div>
       {% endfor %}
     </div>
   </div>
 </div>
+{% else %}
+<div
+  class="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans"
+>
+  <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+    <h1 class="text-4xl font-bold">Sorry . No todos ..Go and add some</h1>
+  </div>
+</div>
 
-{% endblock body %}
+{% endif %} {% endblock body %}

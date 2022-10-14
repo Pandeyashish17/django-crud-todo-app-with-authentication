@@ -2,6 +2,7 @@
 <!-- {% if request.user != "AnonymousUser" %}
     <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">
 {% endif %} -->
+
 <section
   class="bg-cover md:pt-40 pt-28 md:pb-28 pb-14 innerpage-area"
   style="background-image: url(assets/images/hero-banner-bg.svg)"
@@ -31,7 +32,8 @@
     <div class="forms-box lg:w-8/12 mx-auto">
       <div class="login-box shadow-lg rounded-md p-12 sm:p-24">
         <h2 class="text-3xl pb-6 border-b font-bold text-coolGray-900">
-          Sign in 
+          Sign in
+          
         </h2>
         <form action="/signin/" method="POST">
           {% csrf_token %}
@@ -47,7 +49,7 @@
               name="username"
             />
           </div>
-            <div class="mb-6">
+          <div class="mb-6">
             <label
               class="text-coolGray-600 font-normal mb-4 text-base block pt-6"
             >
@@ -69,9 +71,21 @@
               name="password"
             />
           </div>
-          <div
-            class="lg:flex items-center justify-between cursor-pointer mr-4 my-2 mt-8"
-          ></div>
+           <div class="lg:flex items-center justify-between  cursor-pointer mr-4 my-2 mt-8">
+                        <div class="flex mb-4 lg:mb-0">
+                           <input type="checkbox" id="checkbox"
+                              class="checkbox mr-2 w-6 h-6 rounded-sm border-coolGray-300" checked="">
+                           <label class="block text-coolGray-600 font-normal" for="checkbox">Remember Me</label>
+                        </div>
+                        <div class="flex-col">
+                           <a class="text-coolGray-600 font-normal underline-hover"  href="/login">Already have an account</a>
+
+                             
+              </a>
+                        </div>
+
+                     </div>
+          </div>
           <div class="login-btn mt-4 md:mt-8">
             <button
               type="submit"

@@ -8,7 +8,9 @@
 >
   <div class="container mx-auto">
     <div class="text-center page-title">
-      <h1 class="font-bold text-4xl lg:text-7xl text-coolGray-900">Log In</h1>
+      <h1 class="font-bold text-4xl lg:text-7xl text-coolGray-900">
+        See details
+      </h1>
     </div>
     <div class="relative text-center banner-box">
       <div class="banner-dot hidden lg:block">
@@ -31,52 +33,43 @@
     <div class="forms-box lg:w-8/12 mx-auto">
       <div class="login-box shadow-lg rounded-md p-12 sm:p-24">
         <h2 class="text-3xl pb-6 border-b font-bold text-coolGray-900">
-          Login 
+          Details
         </h2>
-        <form action="/login/" method="POST">
+        <form action="" method="POST">
           {% csrf_token %}
           <div class="mb-6">
             <label
               class="text-coolGray-600 font-normal mb-4 text-base block pt-6"
             >
-              Username *
+              title
             </label>
             <input
-              class="border border-coolGray-300 px-4 w-full leading-none h-12 focus:border-indigo-500 focus:outline-none rounded-md text-base font-normal placeholder-coolGray-400 text-coolGray-600"
+              class="p-2 border border-coolGray-300 px-4 w-full leading-none h-12 focus:border-indigo-500 focus:outline-none rounded-md text-base font-normal placeholder-coolGray-400 text-coolGray-600"
               type="text"
-              name="username"
+              name="title"
+              value="{{todoToUpdate.title}}"
             />
           </div>
           <div class="mb-6">
             <label class="text-coolGray-600 font-normal mb-4 text-base block">
-              Password *
+              description
             </label>
-            <input
-              class="border border-coolGray-300 px-4 w-full leading-none h-12 focus:border-indigo-500 focus:outline-none rounded-md text-base font-normal placeholder-coolGray-400 text-coolGray-600"
-              type="password"
-              name="password"
-            />
+            <textarea
+              cols="85"
+              rows="5"
+              class="p-2 border-2 border-gray-300 border-solid"
+              name="description"
+            >
+{{todoToUpdate.description}}</textarea
+            >
           </div>
-            <div class="lg:flex items-center justify-between  cursor-pointer mr-4 my-2 mt-8">
-                        <div class="flex mb-4 lg:mb-0">
-                           <input type="checkbox" id="checkbox"
-                              class="checkbox mr-2 w-6 h-6 rounded-sm border-coolGray-300" checked="">
-                           <label class="block text-coolGray-600 font-normal" for="checkbox">Remember Me</label>
-                        </div>
-                        <div class="flex-col">
-                           <a class="text-coolGray-600 font-normal underline-hover"  href="/signin">Don't have an account?</a>
 
-                             
-              </a>
-                        </div>
-
-                     </div>
           <div class="login-btn mt-4 md:mt-8">
             <button
               type="submit"
               class="inline-block px-7 py-3 bg-indigo-500 text-white rounded-md"
             >
-              login
+              Update
             </button>
           </div>
         </form>
