@@ -1,3 +1,6 @@
+<!-- admin:ashish
+pass:admin -->
+
 {% extends 'base.html' %} {% block body %}
 <div class="m-8">
   <h1 class="text-3xl font-bold">Hello {{request.user}} 😃😃😃</h1>
@@ -42,4 +45,5 @@
   </div>
 </div>
 
-{% endif %} {% endblock body %}
+{% endif %} {% endblock body %} {% block title %} {{request.user}} - 
+ {% endblock title %}

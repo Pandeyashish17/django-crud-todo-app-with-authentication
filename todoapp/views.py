@@ -31,6 +31,12 @@ def loginUser(request):
     else:
         return redirect("home")
 
+
+
+
+
+
+
 def signInUser(request):
     error_message=True
     if request.method=="POST":

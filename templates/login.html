@@ -1,7 +1,4 @@
 {% extends "base.html" %} {% block body %}
-<!-- {% if request.user != "AnonymousUser" %}
-    <meta http-equiv="REFRESH" content="0;url=http://127.0.0.1:8000/">
-{% endif %} -->
 <section
   class="bg-cover md:pt-40 pt-28 md:pb-28 pb-14 innerpage-area"
   style="background-image: url(assets/images/hero-banner-bg.svg)"
@@ -31,9 +28,12 @@
     <div class="forms-box lg:w-8/12 mx-auto">
       <div class="login-box shadow-lg rounded-md p-12 sm:p-24">
         <h2 class="text-3xl pb-6 border-b font-bold text-coolGray-900">
-          Login 
+          Login  
+          {% if userNotExist %}
+           Sorry... This user doesn't exist.. Create new one..
+          {% endif %}
         </h2>
-        <form action="/login/" method="POST">
+        <form action="" method="POST">
           {% csrf_token %}
           <div class="mb-6">
             <label
